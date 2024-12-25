@@ -1,21 +1,24 @@
 package tests;
 
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import pages.FirstPage;
-import pages.InputFormPage;
-import pages.TeamPage;
 
-@Tag("watchTest")
+@Owner("Ekaterina")
+@Feature("Тестирование содержимого главной страницы сайта")
+@Tags({@Tag("ui"), @Tag("watchTest")})
 public class FirstTests extends TestBase {
 
     FirstPage firstPage = new FirstPage();
-    InputFormPage inputFormPage = new InputFormPage();
-    TeamPage teamPage = new TeamPage();
 
     @Test
     @DisplayName("Название кнопки 'Команда' соответствует требованиям")
+    @Story("Позитивный тест")
     public void buttonTeamWatchTest() {
         firstPage.openPage();
         firstPage.checkButtonTeam();
@@ -23,6 +26,7 @@ public class FirstTests extends TestBase {
 
     @Test
     @DisplayName("Кнопка 'Стать клиентом' кликабельна")
+    @Story("Позитивный тест")
     public void buttonClientWatchTest() {
         firstPage.openPage();
         firstPage.checkButtonClient();
@@ -30,6 +34,7 @@ public class FirstTests extends TestBase {
 
     @Test
     @DisplayName("Название кнопки 'Стать поставщиком' соответствует требованиям")
+    @Story("Позитивный тест")
     public void buttonProducerWatchTest() {
         firstPage.openPage();
         firstPage.checkButtonProducer();
@@ -37,6 +42,7 @@ public class FirstTests extends TestBase {
 
     @Test
     @DisplayName("Название кнопки 'Контакты' соответствует требованиям")
+    @Story("Позитивный тест")
     public void buttonContactsWatchTest() {
         firstPage.openPage();
         firstPage.checkButtonContacts();
@@ -44,34 +50,9 @@ public class FirstTests extends TestBase {
 
     @Test
     @DisplayName("Название кнопки 'Стать клиентом' соответствует требованиям")
+    @Story("Позитивный тест")
     public void buttonJoinWatchTest() {
         firstPage.openPage();
         firstPage.checkButtonJoin();
-    }
-
-    @Test
-    @DisplayName("Отображение окна с формой ввода, при нажатии на кнопку 'Стать клиентом' ")
-    public void buttonJoinClickTest() {
-        firstPage.openPage();
-        firstPage.clickButtonJoin();
-        inputFormPage.watchWindowClient();
-    }
-
-    @Test
-    @DisplayName("Закрытие окна с формой ввода, при нажатии на элемент 'Крестик' ")
-    public void closeWindowTest() {
-        firstPage.openPage();
-        firstPage.clickButtonJoin();
-        inputFormPage.closeWindowClient();
-    }
-
-    @Test
-    @DisplayName("Отображение красной рамки на поле 'Email', при незаполненной форме 'Стать частью команды' ")
-    public void watchWindowJoinTeamTest() {
-        firstPage.openPage();
-        firstPage.clickButtonTeam();
-        teamPage.clickButtonJoinTheTeam();
-        inputFormPage.sendEmptyFormJoinTeam();
-        inputFormPage.emailFieldShouldHaveRedBorderOnInvalidInput();
     }
 }

@@ -16,25 +16,25 @@ public class InputFormPage {
 
 
     @Step("Отображение окна 'Стать клиентом'")
-    public InputFormPage watchWindowClient () {
+    public InputFormPage watchWindowClient() {
         modalClients.shouldBe(visible);
         return this;
     }
 
     @Step("Нажать на элемент 'Крестик'")
-    public InputFormPage closeWindowClient () {
+    public InputFormPage closeWindowClient() {
         elementClose.click();
         return this;
     }
 
     @Step("Отправить пустую форму 'Стать частью команды'")
-    public InputFormPage sendEmptyFormJoinTeam () {
+    public InputFormPage sendEmptyFormJoinTeam() {
         modalJoinTeam.submit();
         return this;
     }
 
     @Step("Проверить невалидное (пустое) заполнение поля Email в форме 'Стать частью команды'")
-    public InputFormPage emailFieldShouldHaveRedBorderOnInvalidInput () {
+    public InputFormPage emailFieldShouldHaveRedBorderOnInvalidInput() {
         fieldEmail.shouldHave(cssValue("outline-color", "rgba(255, 0, 0, 1)"));
         return this;
     }
