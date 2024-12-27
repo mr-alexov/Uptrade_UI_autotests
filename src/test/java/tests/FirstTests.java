@@ -55,4 +55,22 @@ public class FirstTests extends TestBase {
         firstPage.openPage();
         firstPage.checkButtonJoin();
     }
+
+    @Test
+    @DisplayName("Проверка текста раздела, при переключении кнопок навигации (стрелка вправо)")
+    @Story("Позитивный тест")
+    public void switchingButtonArrowsTest() {
+        firstPage.openPage();
+        firstPage.rightButtonArrowsTest();
+        firstPage.checkTextAfterSwitchingRightArrowsTest();
+    }
+
+    @Test
+    @DisplayName("Проверка текста раздела, при переключении кнопок индикатора прогресса (цифра 2)")
+    @Story("Позитивный тест")
+    public void switchingButtonPaginationTest() {
+        firstPage.openPage();
+        firstPage.paginationTwoTest();
+        firstPage.checkTextAfterSwitchingTwoNumberTest();
+    }
 }

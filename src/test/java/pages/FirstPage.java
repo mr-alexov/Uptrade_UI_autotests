@@ -1,12 +1,12 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.clickable;
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class FirstPage {
 
@@ -20,6 +20,10 @@ public class FirstPage {
     private final SelenideElement buttonProducer = $("[data-role ='provider']");
     private final SelenideElement buttonContacts = $(".hero__login");
     private final SelenideElement buttonJoin = $("[data-role ='buyer']");
+    private final SelenideElement rightArrow = $(".hero__swiper-button--next");
+    private final SelenideElement textSection = $x("//h2[text()='Гарантируем лучшие цены']");
+    private final SelenideElement paginationTwo = $(".hero__swiper-pagination-item[data-swiper-pagination='2']");
+
 
     @Step("Открыть страницу")
     public FirstPage openPage() {
@@ -66,6 +70,30 @@ public class FirstPage {
     @Step("Нажать на кнопку 'Команда'")
     public FirstPage clickButtonTeam() {
         buttonTeam.click();
+        return this;
+    }
+
+    @Step("Нажать на стрелку 'Вправо'")
+    public FirstPage rightButtonArrowsTest() {
+        rightArrow.click();
+        return this;
+    }
+
+    @Step("Проверка текста раздела, после переключения стрелки 'Вправо'")
+    public FirstPage checkTextAfterSwitchingRightArrowsTest() {
+        textSection.shouldHave(Condition.text("Гарантируем лучшие цены"));
+        return this;
+    }
+
+    @Step("Нажать на кнопку индикатора прогресса '2'")
+    public FirstPage paginationTwoTest() {
+        paginationTwo.click();
+        return this;
+    }
+
+    @Step("Проверка текста раздела, после переключения цифры '2'")
+    public FirstPage checkTextAfterSwitchingTwoNumberTest() {
+        textSection.shouldHave(Condition.text("Гарантируем лучшие цены"));
         return this;
     }
 }

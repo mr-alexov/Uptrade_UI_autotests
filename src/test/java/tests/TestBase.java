@@ -16,6 +16,7 @@ public class TestBase {
     static void beforeAll() {
         Configuration.baseUrl = "https://uptrade.ru";
         Configuration.pageLoadStrategy = "eager";
+        Configuration.timeout = 12000;
         new ConfigRunner();
     }
 
