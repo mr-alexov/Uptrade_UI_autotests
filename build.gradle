@@ -56,3 +56,9 @@ task watchTest(type: Test) {
         includeTags("watchTest")
     }
 }
+
+task dummyTest(type: Test) {
+        useJUnitPlatform {
+            includeTags("dummyTest")
+        }
+}

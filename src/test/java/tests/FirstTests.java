@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import pages.FirstPage;
 
+import static com.codeborne.selenide.Selenide.open;
+
 @Owner("Ekaterina")
 @Feature("Тестирование содержимого главной страницы сайта")
 @Tags({@Tag("ui"), @Tag("watchTest")})
@@ -73,4 +75,12 @@ public class FirstTests extends TestBase {
         firstPage.paginationTwoTest();
         firstPage.checkTextAfterSwitchingTwoNumberTest();
     }
+
+    @Test
+    @Tag("dummyTest")
+    void dummyTest() {
+        open("https://duckduckgo.com");
+
+    }
+
 }
