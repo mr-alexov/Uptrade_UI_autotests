@@ -20,6 +20,8 @@ public class ConfigRunner {
 
     private void createDriver() {
 
+        logger.info("Env variable: " + System.getProperty("env"));
+
         Configuration.browser = config.getBrowserName();
 
         logger.info("Browser: " + Configuration.browser);
